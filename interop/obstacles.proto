@@ -1,4 +1,5 @@
 syntax = "proto3";
+
 package interop;
 
 message MovingObstacle {
@@ -9,10 +10,10 @@ message MovingObstacle {
 }
 
 message StationaryObstacle {
-    float latitude = 1;
-    float longitude = 2;
-    float cylinder_height = 3;
-    float cylinder_radius = 4;
+    double latitude = 1;
+    double longitude = 2;
+    double cylinder_height = 3;
+    double cylinder_radius = 4;
 }
 
 message Obstacles {
