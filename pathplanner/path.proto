@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "interop/obstacles.proto";
 package pathplanner;
 
 message Waypoint {
@@ -32,26 +33,7 @@ message Path {
     int64 reference_id = 5;
 }
 
-message MovingObstacle {
-    double latitude = 1;
-    double longitude = 2;
-    double altitude_msl = 3;
-    double sphere_radius = 4;
-}
-
-message StationaryObstacle {
-    double latitude = 1;
-    double longitude = 2;
-    double cylinder_height = 3;
-    double cylinder_radius = 4;
-}
-
-message Obstacles {
-    repeated MovingObstacle moving_obstacles = 1;
-    repeated StationaryObstacle stationary_obstacles = 2;
-}
-
 service PathPlanner{
-    rpc generate_path(Obstacles) returns (Path);
+    rpc generate_path(interop.Obstacles) returns (Path);
     rpc gcs_action(GCSAction) returns (Path);
 }
