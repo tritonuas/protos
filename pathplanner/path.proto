@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "protos/interop/obstacles.proto";
 package pathplanner;
 
 message Waypoint {
@@ -6,14 +7,15 @@ message Waypoint {
     WaypointType type = 2;
 }
 
+//To be defined
 message GCSAction{
     int64 id = 1;
 }
 
 message Point{
-    float latitude = 1;
-    float longitude = 2;
-    float altitude = 3;
+    double latitude = 1;
+    double longitude = 2;
+    double altitude = 3;
 }
 
 enum WaypointType {
@@ -29,24 +31,6 @@ message Path {
     bool partial = 3;
     int64 start = 4;
     int64 reference_id = 5;
-}
-
-message StationaryObstacle{
-    int64 id = 1;
-    Point point = 2;
-    float height = 3;
-    float radius = 4;
-}
-
-message MovingObstacle{
-    int64 id = 1;
-    Point point = 2;
-    float radius = 3;
-}
-
-message Obstacles{
-    repeated StationaryObstacle stats = 1;
-    repeated MovingObstacle movs = 2;
 }
 
 service PathPlanner{
