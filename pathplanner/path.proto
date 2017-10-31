@@ -1,5 +1,4 @@
 syntax = "proto3";
-import "protos/interop/obstacles.proto";
 package pathplanner;
 
 message Waypoint {
@@ -31,6 +30,25 @@ message Path {
     bool partial = 3;
     int64 start = 4;
     int64 reference_id = 5;
+}
+
+message MovingObstacle {
+    float latitude = 1;
+    float longitude = 2;
+    float altitude_msl = 3;
+    float sphere_radius = 4;
+}
+
+message StationaryObstacle {
+    double latitude = 1;
+    double longitude = 2;
+    double cylinder_height = 3;
+    double cylinder_radius = 4;
+}
+
+message Obstacles {
+    repeated MovingObstacle moving_obstacles = 1;
+    repeated StationaryObstacle stationary_obstacles = 2;
 }
 
 service PathPlanner{
