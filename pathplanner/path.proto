@@ -23,6 +23,7 @@ enum WaypointType {
     TAKEOFF = 1;
     LAND = 2;
     LAND_START = 3;
+    NAV = 4;
 }
 
 message Path {
