@@ -23,11 +23,12 @@ enum WaypointType {
     TAKEOFF = 1;
     LAND = 2;
     LAND_START = 3;
+    NAV = 4;
 }
 
 message Path {
     int64 id = 1;
-    Waypoint waypoints = 2;
+    repeated Waypoint waypoints = 2;
     bool partial = 3;
     int64 start = 4;
     int64 reference_id = 5;
