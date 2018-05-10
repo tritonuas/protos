@@ -18,19 +18,19 @@ message Mission {
 }
 
 message GPS {
-    float latitude = 1;
-    float longitude = 2;
+    double latitude = 1;
+    double longitude = 2;
 }
 
 message Waypoint {
     uint32 order = 1;
-    float latitude = 2;
-    float longitude = 3;
-    float altitude_msl = 4;
+    double latitude = 2;
+    double longitude = 3;
+    double altitude_msl = 4;
 }
 
 message FlyZone {
-    float altitude_msl_min = 1;
-    float altitude_msl_max = 2;
+    double altitude_msl_min = 1;
+    double altitude_msl_max = 2;
     repeated Waypoint boundary_pts = 3;
 }
