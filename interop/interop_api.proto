@@ -1,7 +1,8 @@
 // Descriptors for Interop API.
 
 syntax = "proto2";
-package auvsi_suas.proto;
+package interop;
+option go_package = ".;interop";
 
 // Credentials used to login to interop.
 message Credentials {
