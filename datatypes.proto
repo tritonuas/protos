@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+enum class ODLCShape {
+    Circle = 1;
+    Semicircle = 2;
+    QuarterCircle = 3;
+    Triangle = 4;
+    Rectangle = 5;
+    Pentagon = 6;
+    Star = 7;
+    Cross = 8;
+};
+
+enum class ODLCColor {
+    White = 1;
+    Black = 2;
+    Red = 3;
+    Blue = 4;
+    Green = 5;
+    Purple = 6;
+    Brown = 7;
+    Orange = 8;
+};

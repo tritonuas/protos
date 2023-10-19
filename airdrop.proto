@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message Bottle {
+    string Alphanumeric = 1;
+    string AlphanumericColor = 2;
+	string Shape = 3;
+	string ShapeColor = 4;
+	uint64 DropIndex = 5;
+	bool IsMannikin = 6;
+}
+
+message Bottles {
+  repeated Bottle bottles = 1;
+}
+
+message BottleSwap {
+	string Bottle = 1;
+}
