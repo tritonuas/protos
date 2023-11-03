@@ -1,0 +1,36 @@
+syntax = "proto3";
+option go_package = "/Users/rahulj/Documents/GitHub/protos/newfolder";
+
+enum ConnectionName{
+    AntennaTracker = 0;
+    OnboardComputer = 1;
+    RadioMavlink = 2;
+}
+
+enum ConnectionType{
+    Ethernet = 0;
+    Radio = 1;
+    Wifi = 2;
+}
+
+message ConnectionStatus{
+    ConnectionName name = 1;
+    bool isActive = 2;
+    ConnectionType type = 3;
+}
+
+message ATConnectionInfo{
+    float lat = 1;
+    float lon = 2;
+    float direction = 3;
+    string log = 4;
+}
+
+message OBCConnectionInfo{
+    float mavHeartbeat = 1;
+    bool cameraConnected = 2;
+}
+
+message RMavConnectionInfo{
+    float mavHeartbeat = 1;
+}
