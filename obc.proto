@@ -1,0 +1,65 @@
+syntax = "proto3";
+option go_package = "github.com/tritonuas/gcs/internal/protos";
+
+enum ODLCShape {
+    UnspecifiedShape = 0;
+	Circle = 1;
+    Semicircle = 2;
+    QuarterCircle = 3;
+    Triangle = 4;
+    Rectangle = 5;
+    Pentagon = 6;
+    Star = 7;
+    Cross = 8;
+}
+
+enum ODLCColor {
+	UnspecifiedColor = 0;
+    White = 1;
+    Black = 2;
+    Red = 3;
+    Blue = 4;
+    Green = 5;
+    Purple = 6;
+    Brown = 7;
+    Orange = 8;
+}
+
+enum BottleDropIndex {
+    A = 0;
+    B = 1;
+    C = 2;
+    D = 3;
+    E = 4;
+}
+
+message Bottle {
+    string Alphanumeric = 1;
+    ODLCColor AlphanumericColor = 2;
+	ODLCShape Shape = 3;
+	ODLCColor ShapeColor = 4;
+	BottleDropIndex Index = 5;
+	bool IsMannikin = 6;
+}
+
+message BottleSwap {
+	BottleDropIndex index = 1;
+}
+
+message GPSCoord {
+    double Latitude = 1;
+    double Longitude = 2;
+    double Altitude = 3;
+}
+
+message Mission {
+    repeated GPSCoord FlightBoundary = 1;
+    repeated GPSCoord AirdropBoundary = 2;
+    repeated GPSCoord Waypoints = 3;
+    repeated Bottle BottleAssignments = 4;
+}
+
+message AirdropTarget {
+    BottleDropIndex Index = 1;
+    GPSCoord Coordinate = 2;
+}
