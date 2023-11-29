@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "/Users/rahulj/Documents/GitHub/protos/newfolder";
+option go_package = "github.com/tritonuas/gcs/internal/protos";
 
 enum ConnectionName{
     AntennaTracker = 0;
