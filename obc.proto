@@ -65,14 +65,14 @@ message AirdropTarget {
 }
 
 message IdentifiedTarget {
-    int id = 0;
-    string Picture = 1;
-    GPSCoord coordinate = 2;
-    ODLCColor AlphanumericColor = 3;
-    string Alphanumeric = 4;
-    ODLCShape Shape = 5;
-    ODLCColor ShapeColor = 6;
-    bool IsMannikin = 7;
+    int32 id = 1;
+    string Picture = 2;
+    GPSCoord coordinate = 3;
+    ODLCColor AlphanumericColor = 4;
+    string Alphanumeric = 5;
+    ODLCShape Shape = 6;
+    ODLCColor ShapeColor = 7;
+    bool IsMannikin = 8;
 }
 
 message MatchedTarget {
