@@ -80,3 +80,11 @@ message MatchedTarget {
     Bottle Bottle = 1;
     IdentifiedTarget Target = 2;
 }
+
+message OBCConnInfo {
+    bool mav_rc_good = 1;
+    int32 mav_rc_strength = 2;
+    bool camera_good = 3;
+    repeated int32 ms_since_ad_heartbeat = 4;
+    repeated BottleDropIndex dropped_bottle_idx = 5;
+}
