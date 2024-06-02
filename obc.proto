@@ -88,3 +88,16 @@ message OBCConnInfo {
     repeated int32 ms_since_ad_heartbeat = 4;
     repeated BottleDropIndex dropped_bottle_idx = 5;
 }
+
+message ManualImage {
+    string img_b64 = 1;
+    double lat_deg = 2;
+    double lng_deg = 3;
+    double alt_agl_m = 4;
+    double airspeed_m_s = 5;
+    double heading_deg = 6;
+    double yaw_deg = 7;
+    double pitch_deg = 8;
+    double roll_deg = 9;
+    uint64 timestamp = 10;
+}
