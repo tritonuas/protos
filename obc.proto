@@ -99,5 +99,5 @@ message ManualImage {
     double yaw_deg = 7;
     double pitch_deg = 8;
     double roll_deg = 9;
-    uint64 timestamp = 10;
+    int32 timestamp = 10;
 }
