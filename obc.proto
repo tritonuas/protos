@@ -104,8 +104,8 @@ message ManualImage {
 
 message ManualTargetMatch {
     int32 bottle_a_id = 1;
-    int32 bottle_b_id = 1;
-    int32 bottle_c_id = 1;
-    int32 bottle_d_id = 1;
-    int32 bottle_e_id = 1;
+    int32 bottle_b_id = 2;
+    int32 bottle_c_id = 3;
+    int32 bottle_d_id = 4;
+    int32 bottle_e_id = 5;
 }
