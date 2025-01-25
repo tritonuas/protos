@@ -1,6 +1,27 @@
 syntax = "proto3";
 option go_package = "github.com/tritonuas/gcs/internal/protos";
 
+enum ODLCObjects {
+    Mannequin = 0;
+    Car = 1;
+    Motorcycle = 2;
+    Airplane = 3; 
+    Bus = 4;
+    Boat = 5; 
+    Stopsign = 6;
+    Snowboard = 7;
+    Umbrella = 8;
+    SoccerBall = 9;
+    Basketball = 10; 
+    Volleyball = 11;
+    Football = 12;
+    Baseballbat = 13;
+    Mattress = 14;
+    Tennisracket = 15;
+    Suitcase = 16;
+    Skis = 17;
+}
+
 enum ODLCShape {
     UnspecifiedShape = 0;
 	Circle = 1;
@@ -39,8 +60,9 @@ message Bottle {
     ODLCColor AlphanumericColor = 2;
 	ODLCShape Shape = 3;
 	ODLCColor ShapeColor = 4;
-	BottleDropIndex Index = 5;
-	bool IsMannikin = 6;
+    ODLCObjects Object = 5;
+	BottleDropIndex Index = 6;
+	bool IsMannikin = 7;
 }
 
 message BottleSwap {
@@ -74,6 +96,7 @@ message IdentifiedTarget {
     ODLCShape Shape = 6;
     ODLCColor ShapeColor = 7;
     bool IsMannikin = 8;
+    ODLCObjects Object = 9;
 }
 
 message MatchedTarget {
