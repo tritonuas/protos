@@ -56,6 +56,7 @@ message GPSCoord {
 message Mission {
     repeated GPSCoord FlightBoundary = 1;
     repeated GPSCoord AirdropBoundary = 2;
+    repeated GPSCoord MappingBoundary = 5;
     repeated GPSCoord Waypoints = 3;
     repeated Bottle BottleAssignments = 4;
 }
