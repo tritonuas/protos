@@ -22,30 +22,9 @@ enum ODLCObjects {
     Skis = 17;
 }
 
-enum ODLCShape {
-    UnspecifiedShape = 0;
-	Circle = 1;
-    Semicircle = 2;
-    QuarterCircle = 3;
-    Triangle = 4;
-    Rectangle = 5;
-    Pentagon = 6;
-    Star = 7;
-    Cross = 8;
-}
 
-enum ODLCColor {
-	UnspecifiedColor = 0;
-    White = 1;
-    Black = 2;
-    Red = 3;
-    Blue = 4;
-    Green = 5;
-    Purple = 6;
-    Brown = 7;
-    Orange = 8;
-}
-
+// Don't want to nuke this just yet. I feel like it's going to
+// throw errors we don't want both in gcs and obcpp.
 enum BottleDropIndex {
     Undefined = 0;
     A = 1;
@@ -57,9 +36,6 @@ enum BottleDropIndex {
 
 message Bottle {
     string Alphanumeric = 1;
-    ODLCColor AlphanumericColor = 2;
-	ODLCShape Shape = 3;
-	ODLCColor ShapeColor = 4;
     ODLCObjects Object = 5;
 	BottleDropIndex Index = 6;
 	bool IsMannikin = 7;
@@ -91,10 +67,7 @@ message IdentifiedTarget {
     int32 id = 1;
     string Picture = 2;
     GPSCoord coordinate = 3;
-    ODLCColor AlphanumericColor = 4;
     string Alphanumeric = 5;
-    ODLCShape Shape = 6;
-    ODLCColor ShapeColor = 7;
     bool IsMannikin = 8;
     ODLCObjects Object = 9;
 }
