@@ -35,10 +35,8 @@ enum BottleDropIndex {
 }
 
 message Bottle {
-    string Alphanumeric = 1;
-    ODLCObjects Object = 5;
-	BottleDropIndex Index = 6;
-	bool IsMannikin = 7;
+    ODLCObjects Object = 2;
+	BottleDropIndex Index = 3;
 }
 
 message BottleSwap {
@@ -56,6 +54,7 @@ message Mission {
     repeated GPSCoord AirdropBoundary = 2;
     repeated GPSCoord Waypoints = 3;
     repeated Bottle BottleAssignments = 4;
+    repeated GPSCoord MappingBoundary = 5;
 }
 
 message AirdropTarget {
@@ -67,9 +66,7 @@ message IdentifiedTarget {
     int32 id = 1;
     string Picture = 2;
     GPSCoord coordinate = 3;
-    string Alphanumeric = 5;
-    bool IsMannikin = 8;
-    ODLCObjects Object = 9;
+    ODLCObjects Object = 6;
 }
 
 message MatchedTarget {
