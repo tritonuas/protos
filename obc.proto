@@ -35,8 +35,10 @@ enum BottleDropIndex {
 }
 
 message Bottle {
-    ODLCObjects Object = 1;
-	BottleDropIndex Index = 2;
+	BottleDropIndex Index = 1;
+    
+    // For backwards compatibility purposes
+    ODLCObjects Object = 2;
 }
 
 message BottleSwap {
@@ -60,18 +62,19 @@ message Mission {
 message AirdropTarget {
     BottleDropIndex Index = 1;
     GPSCoord Coordinate = 2;
+    ODLCObjects Object = 3;
 }
 
 message IdentifiedTarget {
     int32 id = 1;
     string Picture = 2;
     GPSCoord coordinate = 3;
-    ODLCObjects Object = 6;
+    ODLCObjects Object = 4;
 }
 
 message MatchedTarget {
     Bottle Bottle = 1;
-    IdentifiedTarget Target = 2;
+    ODLCObjects Object = 2;
 }
 
 message OBCConnInfo {
