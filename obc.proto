@@ -35,8 +35,8 @@ enum BottleDropIndex {
 }
 
 message Bottle {
-    ODLCObjects Object = 2;
-	BottleDropIndex Index = 3;
+    ODLCObjects Object = 1;
+	BottleDropIndex Index = 2;
 }
 
 message BottleSwap {
