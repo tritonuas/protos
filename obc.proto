@@ -1,6 +1,10 @@
 syntax = "proto3";
 option go_package = "github.com/tritonuas/gcs/internal/protos";
 
+/**
+ * Represents the possibe target objects. 
+ * (KEEP)
+ */
 enum ODLCObjects {
     Mannequin = 0;
     Car = 1;
@@ -22,7 +26,11 @@ enum ODLCObjects {
     Skis = 17;
 }
 
-
+/**
+ * Represents the Airdrop IDs
+ * Should be renamed to AirdropIndex, and use more unique names (not A-E)
+ * (CHANGE)
+ */
 // Don't want to nuke this just yet. I feel like it's going to
 // throw errors we don't want both in gcs and obcpp.
 enum BottleDropIndex {
@@ -34,23 +42,38 @@ enum BottleDropIndex {
     E = 5;
 }
 
+/**
+ * Represents a Bottle/Aidrop Object 
+ * (CHANGE)
+ */
 message Bottle {
-	BottleDropIndex Index = 1;
-    
-    // For backwards compatibility purposes
-    ODLCObjects Object = 2;
+	BottleDropIndex Index = 1;  // Unique ID 
+    ODLCObjects Object = 2;     // Unique Target
 }
 
+/**
+ * Represents a Bottle DROP ?
+ * refer to /dropnow but it seems to be used for testing the airdrop. 
+ * why is it called bottleswap
+ */
 message BottleSwap {
 	BottleDropIndex index = 1;
 }
 
+/**
+ * Represents GPS Coordinates 
+ * (KEEP)
+ */
 message GPSCoord {
     double Latitude = 1;
     double Longitude = 2;
     double Altitude = 3;
 }
 
+/**
+ * Represents the Mission Object; Mainly used for Mission initalization.
+ * (KEEP)
+ */
 message Mission {
     repeated GPSCoord FlightBoundary = 1;
     repeated GPSCoord AirdropBoundary = 2;
@@ -59,12 +82,23 @@ message Mission {
     repeated GPSCoord MappingBoundary = 5;
 }
 
+/**
+ * Represents data encoded for the ACTUAL airdrops. 
+ * Check post/targets/locations 
+ * (MODIFY)
+ */
 message AirdropTarget {
     BottleDropIndex Index = 1;
     GPSCoord Coordinate = 2;
     ODLCObjects Object = 3;
 }
 
+/**
+ * Represents the CV Data sent down for matching/manual intervention.
+ * As discussed, this should be roughly kept. 
+ * Picture kept depending on if we have cropped images or not. 
+ * (Change?)
+ */
 message IdentifiedTarget {
     int32 id = 1;
     string Picture = 2;
@@ -72,11 +106,28 @@ message IdentifiedTarget {
     ODLCObjects Object = 4;
 }
 
+/**
+ * Represents the results of manual CV matching
+ * NOTE / TODO:
+            ok so these protobuf messages should really be refactored a bit
+            currently the MatchedTarget protobuf message contains both a Bottle and
+            IdentifiedTarget, which in theory seems fine but gets annoying because
+            now to make the message to send down here we have to construct an entire IdentifiedTarget
+            struct and then send that down, when really we should only need to send the id
+            down because all of the IdentifiedTarget information should have been sent
+            in the GET /targets/all endpoint
+
+            - tyler (old lead)
+ */
 message MatchedTarget {
-    Bottle Bottle = 1;
-    ODLCObjects Object = 2;
+    Bottle Bottle = 1;          // Airdrop ID
+    ODLCObjects Object = 2;     // associated object
 }
 
+/**
+ * Represents the connectivity of elements in the OBC. 
+ * (Keep)
+ */
 message OBCConnInfo {
     bool mav_rc_good = 1;
     float mav_rc_strength = 2;
@@ -85,6 +136,9 @@ message OBCConnInfo {
     repeated BottleDropIndex dropped_bottle_idx = 5;
 }
 
+/**
+ * This is used for testing, skipping over the logic and querying an image from the client.
+ */
 message ManualImage {
     string img_b64 = 1;
     double lat_deg = 2;
@@ -98,6 +152,9 @@ message ManualImage {
     int32 timestamp = 10;
 }
 
+/**
+ * As far as I can tell, this isn't used anywhere. Might be wrong
+ */
 message ManualTargetMatch {
     int32 bottle_a_id = 1;
     int32 bottle_b_id = 2;
