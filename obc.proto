@@ -6,63 +6,58 @@ option go_package = "github.com/tritonuas/gcs/internal/protos";
  * (KEEP)
  */
 enum ODLCObjects {
-    Mannequin = 0;
-    Car = 1;
-    Motorcycle = 2;
-    Airplane = 3; 
-    Bus = 4;
-    Boat = 5; 
-    Stopsign = 6;
-    Snowboard = 7;
-    Umbrella = 8;
-    SoccerBall = 9;
+    Mannequin = 1;
+    Car = 2;
+    Motorcycle = 3;
+    Airplane = 4; 
+    Bus = 5;
+    Boat = 6; 
+    Stopsign = 7;
+    Snowboard = 8;
+    Umbrella = 9;
+    SoccerBall = 10;
     Basketball = 10; 
-    Volleyball = 11;
-    Football = 12;
-    Baseballbat = 13;
-    Mattress = 14;
-    Tennisracket = 15;
-    Suitcase = 16;
-    Skis = 17;
+    Volleyball = 12;
+    Football = 13;
+    Baseballbat = 14;
+    Mattress = 15;
+    Tennisracket = 16;
+    Suitcase = 17;
+    Skis = 18;
 }
 
 /**
  * Represents the Airdrop IDs
- * Should be renamed to AirdropIndex, and use more unique names (not A-E)
- * (CHANGE)
+ * Old name: BottleDropIndex
  */
-// Don't want to nuke this just yet. I feel like it's going to
-// throw errors we don't want both in gcs and obcpp.
-enum BottleDropIndex {
-    Undefined = 0;
-    A = 1;
-    B = 2;
-    C = 3;
-    D = 4;
-    E = 5;
+enum AirdropIndex {
+    Kaz = 1;
+    Kimi = 2;
+    Chris = 3;
+    Daniel = 4;
 }
 
 /**
  * Represents a Bottle/Aidrop Object 
- * (CHANGE)
+ * Old name: Bottle
  */
-message Bottle {
-	BottleDropIndex Index = 1;  // Unique ID 
+message Airdrop {
+	AirdropIndex Index = 1;  // Unique ID 
     ODLCObjects Object = 2;     // Unique Target
 }
 
 /**
  * Represents a Bottle DROP ?
  * refer to /dropnow but it seems to be used for testing the airdrop. 
- * why is it called bottleswap
+ * Takes in an bottle index to be manually dropped for testing purposes
+ * Don't touch unless you want to break stuff
  */
 message BottleSwap {
-	BottleDropIndex index = 1;
+	AirdropIndex index = 1;
 }
 
 /**
  * Represents GPS Coordinates 
- * (KEEP)
  */
 message GPSCoord {
     double Latitude = 1;
@@ -72,13 +67,13 @@ message GPSCoord {
 
 /**
  * Represents the Mission Object; Mainly used for Mission initalization.
- * (KEEP)
+ * Renamed BottleAssignments to AirdropAssignments
  */
 message Mission {
     repeated GPSCoord FlightBoundary = 1;
     repeated GPSCoord AirdropBoundary = 2;
     repeated GPSCoord Waypoints = 3;
-    repeated Bottle BottleAssignments = 4;
+    repeated Airdrop AirdropAssignments = 4;
     repeated GPSCoord MappingBoundary = 5;
 }
 
@@ -88,22 +83,18 @@ message Mission {
  * (MODIFY)
  */
 message AirdropTarget {
-    BottleDropIndex Index = 1;
+    AirdropIndex Index = 1;
     GPSCoord Coordinate = 2;
     ODLCObjects Object = 3;
 }
 
 /**
  * Represents the CV Data sent down for matching/manual intervention.
- * As discussed, this should be roughly kept. 
- * Picture kept depending on if we have cropped images or not. 
- * (Change?)
  */
 message IdentifiedTarget {
     int32 id = 1;
     string Picture = 2;
-    GPSCoord coordinate = 3;
-    ODLCObjects Object = 4;
+    repeated GPSCoord coordinate = 3;
 }
 
 /**
@@ -160,5 +151,4 @@ message ManualTargetMatch {
     int32 bottle_b_id = 2;
     int32 bottle_c_id = 3;
     int32 bottle_d_id = 4;
-    int32 bottle_e_id = 5;
 }
