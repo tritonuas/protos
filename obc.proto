@@ -3,27 +3,28 @@ option go_package = "github.com/tritonuas/gcs/internal/protos";
 
 /**
  * Represents the possibe target objects. 
+ * enum has to start with 0.
  * (KEEP)
  */
 enum ODLCObjects {
-    Mannequin = 1;
-    Car = 2;
-    Motorcycle = 3;
-    Airplane = 4; 
-    Bus = 5;
-    Boat = 6; 
-    Stopsign = 7;
-    Snowboard = 8;
-    Umbrella = 9;
-    SoccerBall = 10;
+    Mannequin = 0;
+    Car = 1;
+    Motorcycle = 2;
+    Airplane = 3; 
+    Bus = 4;
+    Boat = 5; 
+    Stopsign = 6;
+    Snowboard = 7;
+    Umbrella = 8;
+    SoccerBall = 9;
     Basketball = 10; 
-    Volleyball = 12;
-    Football = 13;
-    Baseballbat = 14;
-    Mattress = 15;
-    Tennisracket = 16;
-    Suitcase = 17;
-    Skis = 18;
+    Volleyball = 11;
+    Football = 12;
+    Baseballbat = 13;
+    Mattress = 14;
+    Tennisracket = 15;
+    Suitcase = 16;
+    Skis = 17;
 }
 
 /**
@@ -31,10 +32,10 @@ enum ODLCObjects {
  * Old name: BottleDropIndex
  */
 enum AirdropIndex {
-    Kaz = 1;
-    Kimi = 2;
-    Chris = 3;
-    Daniel = 4;
+    Kaz = 0;
+    Kimi = 1;
+    Chris = 2;
+    Daniel = 3;
 }
 
 /**
@@ -117,7 +118,7 @@ message IdentifiedTarget {
             - tyler (old lead)
  */
 message MatchedTarget {
-    Bottle Bottle = 1;          // Airdrop ID
+    Airdrop Airdrop = 1;          // Airdrop ID
     ODLCObjects Object = 2;     // associated object
 }
 
@@ -130,7 +131,7 @@ message OBCConnInfo {
     float mav_rc_strength = 2;
     bool camera_good = 3;
     repeated int32 ms_since_ad_heartbeat = 4;
-    repeated BottleDropIndex dropped_bottle_idx = 5;
+    repeated AirdropIndex dropped_bottle_idx = 5;
 }
 
 /**
