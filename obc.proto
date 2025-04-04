@@ -89,19 +89,21 @@ message AirdropTarget {
     ODLCObjects Object = 3;
 }
 
+message BboxProto { 
+    int32 x1 = 1;
+    int32 y1 = 2;
+    int32 x2 = 3;
+    int32 y2 = 4;
+}
+
 /**
  * Represents the CV Data sent down for matching/manual intervention.
  */
 message IdentifiedTarget {
-    int32 id = 1;
+    int32 run_id = 1;
     string Picture = 2;
-    repeated GPSCoord coordinate = 3;
-
-	// Bbox
-    int32 x1 = 4;
-    int32 y1 = 5;
-    int32 x2 = 6;
-    int32 y2 = 7;
+    repeated GPSCoord coordinates = 3;
+    repeated BboxProto bboxes = 4;
 }
 
 /**
