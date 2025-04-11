@@ -133,7 +133,7 @@ message OBCConnInfo {
     float mav_rc_strength = 2;
     bool camera_good = 3;
     repeated int32 ms_since_ad_heartbeat = 4;
-    repeated AirdropIndex dropped_bottle_idx = 5;
+    repeated AirdropIndex dropped_airdrop_idx = 5;
 }
 
 /**
