@@ -53,7 +53,7 @@ message Airdrop {
  * Takes in an bottle index to be manually dropped for testing purposes
  * Don't touch unless you want to break stuff
  */
-message BottleSwap {
+message AirdropSwap {
 	AirdropIndex index = 1;
 }
 
@@ -156,8 +156,8 @@ message ManualImage {
  * As far as I can tell, this isn't used anywhere. Might be wrong
  */
 message ManualTargetMatch {
-    int32 bottle_a_id = 1;
-    int32 bottle_b_id = 2;
-    int32 bottle_c_id = 3;
-    int32 bottle_d_id = 4;
+    int32 airdrop_a_id = 1;
+    int32 airdrop_b_id = 2;
+    int32 airdrop_c_id = 3;
+    int32 airdrop_d_id = 4;
 }
