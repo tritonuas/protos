@@ -7,24 +7,25 @@ option go_package = "github.com/tritonuas/gcs/internal/protos";
  * (KEEP)
  */
 enum ODLCObjects {
-    Mannequin = 0;
-    Car = 1;
-    Motorcycle = 2;
-    Airplane = 3; 
-    Bus = 4;
-    Boat = 5; 
-    Stopsign = 6;
-    Snowboard = 7;
-    Umbrella = 8;
-    SoccerBall = 9;
-    Basketball = 10; 
-    Volleyball = 11;
-    Football = 12;
-    Baseballbat = 13;
-    Mattress = 14;
-    Tennisracket = 15;
-    Suitcase = 16;
-    Skis = 17;
+    Undefined = 0;
+    Mannequin = 1;
+    Car = 2;
+    Motorcycle = 3;
+    Airplane = 4; 
+    Bus = 5;
+    Boat = 6; 
+    Stopsign = 7;
+    Snowboard = 8;
+    Umbrella = 9;
+    SoccerBall = 10;
+    Basketball = 11; 
+    Volleyball = 12;
+    Football = 13;
+    Baseballbat = 14;
+    Mattress = 15;
+    Tennisracket = 16;
+    Suitcase = 17;
+    Skis = 18;
 }
 
 /**
