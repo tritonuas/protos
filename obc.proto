@@ -70,6 +70,8 @@ message GPSCoord {
 /**
  * Represents the Mission Object; Mainly used for Mission initalization.
  * Renamed BottleAssignments to AirdropAssignments
+
+    Note: AirdropBoundary must follow ordering: Bottom left, Bottom right, Top right, Top left
  */
 message Mission {
     repeated GPSCoord FlightBoundary = 1;
