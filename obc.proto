@@ -79,6 +79,7 @@ message Mission {
     repeated GPSCoord Waypoints = 3;
     repeated Airdrop AirdropAssignments = 4;
     repeated GPSCoord MappingBoundary = 5;
+    repeated GPSCoord DropLocation = 6;
 }
 
 /**
