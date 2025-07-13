@@ -93,6 +93,9 @@ message AirdropTarget {
     ODLCObjects Object = 3;
 }
 
+/**
+ * Bounding boxes for each target
+ */
 message BboxProto { 
     int32 x1 = 1;
     int32 y1 = 2;
