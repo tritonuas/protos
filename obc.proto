@@ -1,17 +1,6 @@
 syntax = "proto3";
 option go_package = "github.com/tritonuas/gcs/internal/protos";
 
-/**
- * Represents the possibe target objects. 
- * enum has to start with 0.
- * (KEEP)
- */
-enum ODLCObjects {
-    Undefined = 0;
-    Mannequin = 1;
-    Tent = 2;
-}
-
 / **
  * Represents the Airdrop IDs
  * Old name: AirdropType
@@ -28,7 +17,6 @@ enum AirdropType {
  */
 message Airdrop {
 	AirdropType Index = 1;  // Unique ID 
-    ODLCObjects Object = 2;     // Unique Target
 }
 
 /**
@@ -73,7 +61,6 @@ message Mission {
 message AirdropTarget {
     AirdropType Index = 1;
     GPSCoord Coordinate = 2;
-    ODLCObjects Object = 3;
 }
 
 /**
@@ -109,10 +96,7 @@ message IdentifiedTarget {
 
             - tyler (old lead)
  */
-message MatchedTarget {
-    Airdrop Airdrop = 1;          // Airdrop ID
-    ODLCObjects Object = 2;     // associated object
-}
+
 
 /**
  * Represents the connectivity of elements in the OBC. 
