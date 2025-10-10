@@ -3,7 +3,7 @@ option go_package = "github.com/tritonuas/gcs/internal/protos";
 
 / **
  * Represents the Airdrop IDs
- * Old name: AirdropType
+ * Old name: AirdropIndex
  */
 enum AirdropType {
     Undefined = 0;
