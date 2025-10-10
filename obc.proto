@@ -83,20 +83,6 @@ message IdentifiedTarget {
     repeated BboxProto bboxes = 4;
 }
 
-/**
- * Represents the results of manual CV matching
- * NOTE / TODO:
-            ok so these protobuf messages should really be refactored a bit
-            currently the MatchedTarget protobuf message contains both a Bottle and
-            IdentifiedTarget, which in theory seems fine but gets annoying because
-            now to make the message to send down here we have to construct an entire IdentifiedTarget
-            struct and then send that down, when really we should only need to send the id
-            down because all of the IdentifiedTarget information should have been sent
-            in the GET /targets/all endpoint
-
-            - tyler (old lead)
- */
-
 
 /**
  * Represents the connectivity of elements in the OBC. 
