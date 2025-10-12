@@ -1,7 +1,7 @@
 syntax = "proto3";
 option go_package = "github.com/tritonuas/gcs/internal/protos";
 
-/ **
+/**
  * Represents the Airdrop IDs
  * Old name: AirdropIndex
  */
