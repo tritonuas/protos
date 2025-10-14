@@ -81,7 +81,7 @@ message IdentifiedTarget {
     string Picture = 2;
     repeated GPSCoord coordinates = 3;
     repeated BboxProto bboxes = 4;
-    repeated AirdropTarget target_type = 5;
+    repeated AirdropType target_type = 5;
 }
 
 
