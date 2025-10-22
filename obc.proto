@@ -84,7 +84,15 @@ message IdentifiedTarget {
     repeated AirdropType target_type = 5;
 }
 
-
+/**
+* Represents a record of a CV result stored on the OBC for later use
+*/
+message CVResultRecord {
+    int32 run_id = 1;
+    repeated GPSCoord coordinates = 2;
+    repeated BboxProto bboxes = 3;
+    repeated AirdropType target_type = 4;
+}
 /**
  * Represents the connectivity of elements in the OBC. 
  * (Keep)
