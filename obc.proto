@@ -84,7 +84,13 @@ message IdentifiedTarget {
     repeated AirdropType target_type = 5;
 }
 
-
+/**
+* Represents a record of a CV result stored on the OBC for later use
+*/
+message CVResultRecord {
+    IdentifiedTarget result = 1;
+    bool pruned = 2;
+}
 /**
  * Represents the connectivity of elements in the OBC. 
  * (Keep)
