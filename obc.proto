@@ -72,10 +72,7 @@ message BboxProto {
     int32 x2 = 3;
     int32 y2 = 4;
 }
-message CVResultRecord {
-    IdentifiedTarget target = 1;
-    bool pruned = 2;
-}
+
 /**
  * Represents the CV Data sent down for matching/manual intervention.
  */
